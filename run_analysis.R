@@ -1,10 +1,10 @@
 #!/usr/bin/env Rscript
 
 # download the original data
-#download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip', dest = 'raw.zip')
-#Sys.Date()
-#unzip('raw.zip')
-#
+download.file('https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip', dest = 'raw.zip')
+Sys.Date()
+unzip('raw.zip')
+
 # we use the data.table package for data processing
 library(data.table)
 
