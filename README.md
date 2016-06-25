@@ -1,28 +1,95 @@
 
-## Processing in run_analysis.R
+## Processing steps in run_analysis.R
+The data.table package was used to process the raw data. For those not familar with data.table, the code may look not easy to understand. Please familar yourself with data.table before trying to understand the steps.
 
--!/usr/bin/env Rscript
 - download the original data
-- we use the data.table package for data processing
 - read in the original feature matrix from both train and test
 - combine train and test
 - read in the original feature names
 - annotate the combined feature matrix using the original feature names
 - filtering feature matrix: only keep the mean and standard deviation measures
 - make the feature names more descriptive
-- replace the "t" prefix with "time"
-- replace the "f" prefix with "frequencyDomain"
-- replace "Acc" with "Acceleration"
-- replace "Gyro" with "Gyroscope"
-- replace "Mag" with "Magnitude"
-- replace "mean()" with "mean"
-- replace "std()" with "standardDeviation"
+	- replace the "t" prefix with "time"
+	- replace the "f" prefix with "frequencyDomain"
+	- replace "Acc" with "Acceleration"
+	- replace "Gyro" with "Gyroscope"
+	- replace "Mag" with "Magnitude"
+	- replace "mean()" with "mean"
+	- replace "std()" with "standardDeviation"
 - read in the original activity labels 
 - read in the original activity label to name mapping
-- convert the integer label to characters for downstream fast key lookup through data.table
 - translate the original activity label list into activity name list
 - read in the original subject labels
 - combine the subject list, activity name list, and filtered feature list into one variable
-- save this dataset
 - generate another tidy data for the average measures for each subject and activity
-- save this dataset 
+
+## Code book
+Here are the variable names:
+- "subject": original subject ID
+- "activity": descriptive activity names
+- "timeBodyAcceleration.mean.X": this and the following were translated from the orignal features_info.txt file, with descriptive edits as described in the above steps
+- "timeBodyAcceleration.mean.Y"
+- "timeBodyAcceleration.mean.Z"
+- "timeBodyAcceleration.standardDeviation.X"
+- "timeBodyAcceleration.standardDeviation.Y"
+- "timeBodyAcceleration.standardDeviation.Z"
+- "timeGravityAcceleration.mean.X"
+- "timeGravityAcceleration.mean.Y"
+- "timeGravityAcceleration.mean.Z"
+- "timeGravityAcceleration.standardDeviation.X"
+- "timeGravityAcceleration.standardDeviation.Y"
+- "timeGravityAcceleration.standardDeviation.Z"
+- "timeBodyAccelerationJerk.mean.X"
+- "timeBodyAccelerationJerk.mean.Y"
+- "timeBodyAccelerationJerk.mean.Z"
+- "timeBodyAccelerationJerk.standardDeviation.X"
+- "timeBodyAccelerationJerk.standardDeviation.Y"
+- "timeBodyAccelerationJerk.standardDeviation.Z"
+- "timeBodyGyroscope.mean.X"
+- "timeBodyGyroscope.mean.Y"
+- "timeBodyGyroscope.mean.Z"
+- "timeBodyGyroscope.standardDeviation.X"
+- "timeBodyGyroscope.standardDeviation.Y"
+- "timeBodyGyroscope.standardDeviation.Z"
+- "timeBodyGyroscopeJerk.mean.X"
+- "timeBodyGyroscopeJerk.mean.Y"
+- "timeBodyGyroscopeJerk.mean.Z"
+- "timeBodyGyroscopeJerk.standardDeviation.X"
+- "timeBodyGyroscopeJerk.standardDeviation.Y"
+- "timeBodyGyroscopeJerk.standardDeviation.Z"
+- "timeBodyAccelerationMagnitude.mean"
+- "timeBodyAccelerationMagnitude.standardDeviation"
+- "timeGravityAccelerationMagnitude.mean"
+- "timeGravityAccelerationMagnitude.standardDeviation"
+- "timeBodyAccelerationJerkMagnitude.mean"
+- "timeBodyAccelerationJerkMagnitude.standardDeviation"
+- "timeBodyGyroscopeMagnitude.mean"
+- "timeBodyGyroscopeMagnitude.standardDeviation"
+- "timeBodyGyroscopeJerkMagnitude.mean"
+- "timeBodyGyroscopeJerkMagnitude.standardDeviation"
+- "frequencyDomainBodyAcceleration.mean.X"
+- "frequencyDomainBodyAcceleration.mean.Y"
+- "frequencyDomainBodyAcceleration.mean.Z"
+- "frequencyDomainBodyAcceleration.standardDeviation.X"
+- "frequencyDomainBodyAcceleration.standardDeviation.Y"
+- "frequencyDomainBodyAcceleration.standardDeviation.Z"
+- "frequencyDomainBodyAccelerationJerk.mean.X"
+- "frequencyDomainBodyAccelerationJerk.mean.Y"
+- "frequencyDomainBodyAccelerationJerk.mean.Z"
+- "frequencyDomainBodyAccelerationJerk.standardDeviation.X"
+- "frequencyDomainBodyAccelerationJerk.standardDeviation.Y"
+- "frequencyDomainBodyAccelerationJerk.standardDeviation.Z"
+- "frequencyDomainBodyGyroscope.mean.X"
+- "frequencyDomainBodyGyroscope.mean.Y"
+- "frequencyDomainBodyGyroscope.mean.Z"
+- "frequencyDomainBodyGyroscope.standardDeviation.X"
+- "frequencyDomainBodyGyroscope.standardDeviation.Y"
+- "frequencyDomainBodyGyroscope.standardDeviation.Z"
+- "frequencyDomainBodyAccelerationMagnitude.mean"
+- "frequencyDomainBodyAccelerationMagnitude.standardDeviation"
+- "frequencyDomainBodyBodyAccelerationJerkMagnitude.mean"
+- "frequencyDomainBodyBodyAccelerationJerkMagnitude.standardDeviation"
+- "frequencyDomainBodyBodyGyroscopeMagnitude.mean"
+- "frequencyDomainBodyBodyGyroscopeMagnitude.standardDeviation"
+- "frequencyDomainBodyBodyGyroscopeJerkMagnitude.mean"
+- "frequencyDomainBodyBodyGyroscopeJerkMagnitude.standardDeviation"
